@@ -1,0 +1,57 @@
+<!--Whole project is based on the Udacity FSND course materials -->
+{% extends 'main.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+       <div class="col-md-12">
+       </div>
+    </div>
+ </div>
+ <div class="container">
+    <div class="row">
+       <div class="col-md-12">
+          <div class='heading'>
+             <h1>{{ divisions.name }}</h1>
+             <a href='{{url_for("showDivisions")}}'>
+                <h2>Divisions</h2>
+             </a>
+             <hr>
+          </div>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+             {% for message in messages %}
+             <li><strong> {{ message }} </strong></li>
+             {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+          {% if drivers !=[] %}
+          <h2 class="text-center">Drivers</h2>
+          <hr>
+          <br>
+          <br>
+          {% for i in drivers %}
+          <div class="row">
+             <div class="col s12 m6">
+                <div class="tile">
+                   <div class="tile-title">
+                      <h2 class="text-center">{{ i.name }}</h2>
+                      <hr>
+                   </div>
+                   <p>{{ i.rank }}</p>
+                   <p>{{ i.country }}</p>
+                   <p>{{ i.description }}</p>
+                </div>
+             </div>
+          </div>
+          {% endfor %}
+          {% else %}
+          <p> You currently have no  driverrs. </p>
+          New
+          Item</a>
+          {% endif %}
+       </div>
+    </div>
+ </div>
+{% endblock %}

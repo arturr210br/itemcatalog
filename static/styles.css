@@ -1,0 +1,62 @@
+body {
+    font-family: 'Open Sans', Futura;
+    background-color: #f8ecc6;
+    color: rgba(72, 72, 72, 1)
+}
+
+hr {
+    background-color: rgba(34, 27, 27, 0.8);
+    margin: auto;
+    width: 55%;
+}
+
+h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 5.2em;
+}
+
+
+
+
+.tile {
+    border: 1px solid #bbb; 
+    border-radius: 4px;
+    margin: auto; 
+    max-width: 550px;
+    padding: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 4px #bbb;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(34, 27, 27, 1);
+    font-size: 14px;
+}
+
+
+
+/* .drivername {
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+.driverrank {
+    text-align: right;
+    width: 50%;
+    float: right;
+} */
+
+
+
+.flash {
+    background: rgb(200, 226, 245);
+}
+
+.user-content {
+    width: 100%;
+    height: 50%;
+    display: block;
+    text-align: right;
+}

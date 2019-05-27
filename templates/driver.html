@@ -1,0 +1,75 @@
+<!--Whole project is based on the Udacity FSND course materials -->
+{% extends 'main.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+       <div class="col-md-12">
+          <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+          <div>
+             <a href="http://localhost:5001/gdisconnect">
+                <h2>Logout</h2>
+             </a>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="container">
+    <div class="row">
+       <div class="col-md-12">
+          <div class='heading'>
+             <h1>{{ divisions.name }}</h1>
+             <a href='{{url_for("showDivisions")}}'>
+                <h2>Divisions</h2>
+             </a>
+             <hr>
+          </div>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+             {% for m in messages %}
+             <li><strong> {{ m }} </strong></li>
+             {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+          {% if drivers !=[] %}
+          <h2 class="text-center">Drivers</h2>
+          <hr>
+          <br>
+          <br>
+          <a href = '{{url_for('newDriver', division_id=division_id) }}'>
+          Create New </a>
+          {% for i in drivers %}
+          <div class="row">
+             <div class="col s12 m6">
+                <div class="tile">
+                   <div class="tile-title">
+                      <h2 class="text-center">{{ i.name }}</h2>
+                      <hr>
+                   </div>
+                   <p>{{ i.rank }}</p>
+                   <p>{{ i.country }}</p>
+                   <p>{{ i.description }}</p>
+                   <a href='{{url_for('editDriver' , division_id=division_id , driver_id = i.id) }}'>
+                   <h5>Edit</h5>
+                   </a>
+                   <a href='{{url_for('deleteDriver' , division_id=division_id , driver_id = i.id) }}'>
+                   <h5>Delete</h5>
+                   </a>
+                   <br><br>
+                </div>
+             </div>
+          </div>
+          {% endfor %}
+          {% else %}
+          <p> You currently have no  driverrs. </p>
+          <a href= '{{url_for('newDriver', division_id = division_id) }}'>
+          <h5>
+          New Item
+          <h5>
+          </a>
+          {% endif %}
+       </div>
+    </div>
+ </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!--Whole project is based on the Udacity FSND course materials -->
+{% extends 'main.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+       <div class="col-md-12">
+          <div class="user-content">
+          </div>
+       </div>
+    </div>
+    <div class="container">
+    <div class="row">
+       <div class="col-md-3"></div>
+       <div class="col-md-6 text-center">
+          <h1> Edit Divisions </h1>
+          <form action="{{ url_for('editDivision', division_id = division.id) }}"
+             method='post'>
+             <p>Name:</p>
+             <input type='text' size='30' name='name'
+                placeholder='{{ division.name }}'>
+             <input type='submit' value='Edit'>
+             <a href='{{ url_for('showDivisions') }}'> Cancel </a>
+          </form>
+          <div class="col-md-3"></div>
+       </div>
+    </div>
+{% endblock %}

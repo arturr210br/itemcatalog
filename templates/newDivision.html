@@ -1,0 +1,30 @@
+<!--Whole project is based on the Udacity FSND course materials -->
+{% extends 'main.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+       <div class="col-md-12">
+          <div class="user-content">
+             <hr>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="container">
+    <div class="row">
+       <div class="col-md-3"></div>
+       <div class="col-md-6 text-center">
+          <h1>New Division</h1>
+          <form action="#" method='post'>
+             <p>Name:</p>
+             <input type='text' size='30' name='name'>
+             <input type='submit' value='Create'>
+          </form>
+          <a href='{{url_for("showDivisions")}}'>
+             <h4>Cancel</h4>
+          </a>
+          <div class="col-md-3"></div>
+       </div>
+    </div>
+ </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!--Whole project is based on the Udacity FSND course materials -->
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+       <div class="col-md-3"></div>
+       <div class="col-md-6 text-center">
+          <h3> Are you sure you want to delete {{ division.name }}? </h3>
+          <form action="#" method='post'>
+             <input type='submit' , value='Delete'>
+          </form>
+          <a href= '{{url_for('showDivisions')}}'>Cancel</a>
+       </div>
+       <div class="col-md-3"></div>
+    </div>
+ </div>
+{% endblock %}

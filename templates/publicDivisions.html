@@ -1,0 +1,39 @@
+<!--Whole project is based on the Udacity FSND course materials -->
+{% extends 'main.html' %}
+{% block content %}
+<div class="container-fluid"></div>
+<header>
+   <a href='{{url_for("showLogin")}}'>
+      <h2>Login</h2>
+   </a>
+</header>
+<body>
+   <h1>Divisions</h1>
+   <div class="container">
+      <div class="col-md-12">
+         {% with messages = get_flashed_messages() %}
+         {% if messages %}
+         <ul>
+            {% for m in messages %}
+            <li><strong>{{m}}</strong></li>
+            {% endfor %}
+         </ul>
+         {% endif %} 
+         {% endwith %}
+         <div class="row">
+            <div class="col-md-12">
+               <a href = '{{url_for('newDivision') }}'>
+               Create New Division</a>
+               {% for div in division %}
+               <div class='tile'>
+                  <a href='{{url_for("showDivisionDetail", division_id = div.id,)}}'>
+                     <h2>{{div.name}}</h2>
+                  </a>
+               </div>
+               {% endfor%}
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!--Whole project is based on the Udacity FSND course materials -->
+{% extends 'main.html' %}
+{% block content %}
+<script> 
+    login_session='{{ login_session }}';
+    console.log(login_session)
+ </script>
+ <div class="container-fluid">
+    <div class="row">
+       <div class="col-md-12">
+          <div>
+             <a href="http://localhost:5001/gdisconnect">
+                <h2>Logout</h2>
+             </a>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="container">
+    <div class="row">
+       <div class="col-md-12">
+          <h1>Divisions</h1>
+          <hr>
+       </div>
+       {% with messages = get_flashed_messages() %}
+       {% if messages %}
+       <ul>
+          {% for m in messages %}
+          <li><strong>{{m}}</strong></li>
+          {% endfor %}
+       </ul>
+       {% endif %}
+       {% endwith %}
+       <div class="col-md-12">
+          <a href = '{{url_for('newDivision') }}'>
+          Create New </a>
+          {% for div in division %}
+          <div class="tile">
+             <a href='{{url_for("showDivisionDetail", division_id = div.id,)}}'>
+                <h2>{{div.name}}</h2>
+             </a>
+             <a href='{{url_for('editDivision' , division_id  = div.id) }}'>
+             <h7>Edit Division </h7>
+             </a>
+             <a href="{{url_for('deleteDivision' , division_id  = div.id) }}">
+                <h7>Delete Division</h7>
+             </a>
+          </div>
+          {% endfor %}
+       </div>
+    </div>
+ </div>
+{% endblock %}
